@@ -5,18 +5,24 @@ import { FaStar } from 'react-icons/fa';
 
 const createArray = (length) => [...Array(length)];
 
-function Star({ selected = false }) {
-  return <FaStar color={selected ? "red" : "grey"} />
+function Star({ selected = false, onSelect }) {
+  return <FaStar color={selected ? "red" : "grey"} onClick={onSelect} />
 }
 
 function StarRating({ totalStarts = 5 }) {
-  return createArray(totalStarts).map((n, i) => (
-    <Star key={i} />
-  ));
+  const [selectedStars, setSelectedStars] = useState(0);
+  return (
+    <>
+    {createArray(totalStarts).map((n, i) => (
+      <Star key={i} selected={selectedStars > i} onSelect={() => setSelectedStars(i + 1)} />
+    ))}
+    <p>{selectedStars} of {totalStarts}</p>
+    </>
+  )
 }
 
 function App() {
-  return <StarRating totalStarts={10} />;
+  return <StarRating totalStarts={4} />;
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
