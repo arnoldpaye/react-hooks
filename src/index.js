@@ -8,10 +8,10 @@ const TreesContext = createContext();
 export const useTrees = () => useContext(TreesContext);
 
 const trees = [
-  { i: "1", type: "Maple" },
-  { i: "2", type: "Oak" },
-  { i: "3", type: "Family" },
-  { i: "4", type: "Component" },
+  { id: "1", type: "Maple" },
+  { id: "2", type: "Oak" },
+  { id: "3", type: "Family" },
+  { id: "4", type: "Component" },
 ];
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
