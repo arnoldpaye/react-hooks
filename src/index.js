@@ -1,8 +1,9 @@
 import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import App from "./App";
 
-export const TreeContext = createContext();
+export const TreesContext = createContext();
 
 const trees = [
   { i: "1", type: "Maple" },
@@ -11,17 +12,9 @@ const trees = [
   { i: "4", type: "Component" },
 ];
 
-function App() {
-  return (
-    <div>
-      <h1>Trees I've Heard Of</h1>
-    </div>
-  );
-}
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <TreeContext.Provider value={{ trees }}>
+  <TreesContext.Provider value={{ trees }}>
     <App />
-  </TreeContext.Provider>
+  </TreesContext.Provider>
 );
